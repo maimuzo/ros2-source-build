@@ -72,7 +72,8 @@ RUN mkdir -p $ROS2_WS/src
 WORKDIR $ROS2_WS
 
 # Get ROS2 code
-RUN wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+# RUN wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+RUN wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
 RUN vcs import src < ros2.repos
 
     
@@ -93,6 +94,8 @@ RUN cp /etc/skel/.bashrc ~/
 
 # setup entrypoint
 COPY ./ros_entrypoint.sh /
+
+RUN chmod +x /ros_entrypoint.sh
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
