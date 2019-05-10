@@ -23,8 +23,8 @@ WORKDIR $CATKIN_WS/src
 RUN git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
 RUN git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
 
-# build Turtlebot3 from source
-RUN cd $CATKIN_WS && catkin_make
+# import workspace environment and build Turtlebot3 from source by bash
+RUN /bin/bash -c '. /opt/ros/kinetic/setup.bash; cd $CATKIN_WS; catkin_make'
 
 # setup entrypoint
 COPY ./ros_entrypoint.sh /
