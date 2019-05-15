@@ -11,6 +11,5 @@ export TURTLEBOT3_MODEL=burger
 # export ROS_HOSTNAME=localhost
 
 # kick ROS & Turtlebot3
-roscore &
 roslaunch turtlebot3_bringup turtlebot3_remote.launch &
 exec "$@"
